@@ -20,11 +20,11 @@ namespace crm.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
-            IEnumerable<Customer> Customers = await _customerRepository.GetAllAsync();
-            CustomerDto customerDto         = _mapper.Map<CustomerDto>(Customers.FirstOrDefault());
-            return View(customerDto);
+            IEnumerable<Customer> Customers        = await _customerRepository.GetAllAsync();
+            IEnumerable<CustomerDto> customersDto  = _mapper.Map<IEnumerable<Customer>, IEnumerable<CustomerDto>>(Customers);
+            return View(customersDto);
         }
     }
 }

@@ -1,6 +1,9 @@
-﻿@page
-@model crm.CustomerDto
+﻿@model IEnumerable<crm.CustomerDto>
 
-@Model.Firstname.ToString()
-
-test
+@foreach (var item in Model)
+{
+    @item.Firstname  <br />
+    @item.Lastname 
+    <br />
+    <br />
+}
