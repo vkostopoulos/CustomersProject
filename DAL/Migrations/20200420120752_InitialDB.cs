@@ -23,6 +23,19 @@ namespace crm_last.Migrations
                 {
                     table.PrimaryKey("PK_Customer", x => x.Id);
                 });
+
+            migrationBuilder.Sql(@"INSERT INTO Customer
+                                               (Firstname
+                                               , Lastname
+                                               , Email
+                                               , Phone
+                                               , Address)
+                                         VALUES
+                                                ('Firstname test'
+                                               , 'Lastname test'
+                                               , 'Emailtestgmail.com'
+                                               , 6973937655
+                                               , 'Zaloggou 5')");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
